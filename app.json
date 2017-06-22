@@ -1,0 +1,6 @@
+{
+  "name": "Frontend Experiments",
+  "description": "Personal project to test Frontend Technologies",
+  "repository": "https://github.com/jfsebastian/FrontendExperiments",
+  "keywords": ["angular2", "express", "node", "d3"]
+}
