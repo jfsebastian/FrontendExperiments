@@ -1,4 +1,4 @@
-import {Action} from '@ngrx/store';
+import { Action } from '@ngrx/store';
 
 // Layout Actions
 export const LayoutActionTypes = {
@@ -6,21 +6,20 @@ export const LayoutActionTypes = {
   CLOSE_MODAL: '[Layout] Close Modal'
 };
 
-export type LayoutActions = CloseModalAction | OpenModalAction;
-
-/**
- * Modal Actions
+/*
+ Modal actions
  */
 export class OpenModalAction implements Action {
   type = LayoutActionTypes.OPEN_MODAL;
-  constructor(public payload: string) {
-
+  constructor(public payload:string) {
   }
 }
 
 export class CloseModalAction implements Action {
   type = LayoutActionTypes.CLOSE_MODAL;
   constructor() {
-
   }
 }
+
+// TODO: Define LayoutActions as a Type implementing Action and not failing tests in build phase
+export type LayoutActions = OpenModalAction | CloseModalAction

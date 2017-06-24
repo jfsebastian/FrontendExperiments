@@ -1,21 +1,21 @@
 import {Component, ChangeDetectionStrategy, Output, ViewChild, EventEmitter, Input, ElementRef} from '@angular/core';
 import {NgbModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
 
+
 @Component({
-  selector: 'modal',
-  templateUrl: 'modal.template.html'
+  selector: 'template-modal',
+  templateUrl: 'template-modal.template.html'
 })
+export class TemplateModalComponent {
 
-export class ModalComponent {
-
-  private modalName:string = 'templateFormModal';
+  private modalName:string =  'templateFormModal';
   private modalRef:NgbModalRef;
 
   @ViewChild('content') _templateModal:ElementRef;
 
-  @Input() set modalState(_modalState:any) {
+  @Input() set modalState(_modalState:any) {;
     if(_modalState == this.modalName) {
-      this.openModal();
+      this.openModal()
     } else if(this.modalRef) {
       this.closeModal();
     }
@@ -26,10 +26,10 @@ export class ModalComponent {
   constructor(private modalService: NgbModal) {}
 
   openModal() {
-    this.modalRef = this.modalService.open(this._templateModal, {backdrop: 'static' , keyboard: false, size: 'sm'});
+    this.modalRef = this.modalService.open(this._templateModal, {backdrop: 'static' , keyboard: false, size: 'sm'})
   }
 
-  closeModal() {
+  closeModal()  {
     this.modalRef.close();
   }
 

@@ -1,7 +1,8 @@
+import { Action } from '@ngrx/store';
 import { LayoutActions, LayoutActionTypes } from './layout.actions';
-import {LayoutState, initialState} from './layout.state';
+import { LayoutState, initialState } from './layout.state';
 
-export function reducer(state = initialState, action: LayoutActions): LayoutState {
+export function reducer(state = initialState, action: Action): LayoutState {
   switch (action.type) {
     /*
      Modal cases
@@ -9,12 +10,12 @@ export function reducer(state = initialState, action: LayoutActions): LayoutStat
     case LayoutActionTypes.OPEN_MODAL: {
       const name = action.payload;
       return Object.assign({}, state, {
-        openedModalName: name
+        openedModalName:name
       });
     }
     case LayoutActionTypes.CLOSE_MODAL: {
       return Object.assign({}, state, {
-        openedModalName: null
+        openedModalName:null
       });
     }
     /*
@@ -25,4 +26,4 @@ export function reducer(state = initialState, action: LayoutActions): LayoutStat
   }
 }
 
-export const getOpenedModalName = (state:LayoutState) => state.openedModalName;
+export const getOpenedModalName = (state: LayoutState) => state.openedModalName;

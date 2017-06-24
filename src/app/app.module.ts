@@ -19,14 +19,15 @@ import { ROUTES } from './app.routes';
 // App is our top level component
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 
+import { TweetService } from '../services/tweet.service';
+
 import { AppComponent } from './app.component';
 
 import { HomeComponent } from '../Components/home';
 import { NoContentComponent } from '../Components/no-content';
 
-import { ModalComponent } from '../Components/shared/modal';
+import { TemplateModalComponent } from '../Components/shared/modal';
 
-import { TweetService } from '../services/tweet.service';
 
 import '../styles/styles.scss';
 
@@ -51,7 +52,7 @@ type StoreType = {
     AppComponent,
     NoContentComponent,
     HomeComponent,
-    ModalComponent
+    TemplateModalComponent
   ],
   /**
    * Import Angular's modules.
