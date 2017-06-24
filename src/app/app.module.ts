@@ -3,6 +3,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule, ApplicationRef } from '@angular/core';
 import { RouterModule, PreloadAllModules } from '@angular/router';
+import { StoreModule } from '@ngrx/store'
+// With metareducer function
+import { metaReducer } from '../redux'
+
+import {NgbModule} from "@ng-bootstrap";
 
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 
@@ -18,6 +23,8 @@ import { AppComponent } from './app.component';
 
 import { HomeComponent } from '../Components/home';
 import { NoContentComponent } from '../Components/no-content';
+
+import { ModalComponent } from '../Components/shared/modal';
 
 import { TweetService } from '../services/tweet.service';
 
@@ -43,7 +50,8 @@ type StoreType = {
   declarations: [
     AppComponent,
     NoContentComponent,
-    HomeComponent
+    HomeComponent,
+    ModalComponent
   ],
   /**
    * Import Angular's modules.
@@ -52,7 +60,9 @@ type StoreType = {
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
+    StoreModule.provideStore(metaReducer),
+    NgbModule.forRoot()
   ],
   /**
    * Expose our Services and Providers into Angular's dependency injection.

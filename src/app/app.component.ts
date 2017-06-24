@@ -1,12 +1,16 @@
 /**
  * Angular 2 decorators and services
  */
-import {
-  Component,
-  OnInit,
-  ViewEncapsulation
-} from '@angular/core';
-import { AppState } from './app.service';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+
+/**
+ * Reducers, States and Actions
+ */
+import {} from '../redux';
+import { AppState } from '../redux/app-state'
+import { OpenModalAction, CloseModalAction } from '../redux/layout/layout.actions'
 
 /**
  * App Component
@@ -15,37 +19,8 @@ import { AppState } from './app.service';
 @Component({
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
-  styleUrls: [
-    './app.component.css'
-  ],
-  template: `
-    <nav>
-      <a [routerLink]=" ['./'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Index
-      </a>
-      <a [routerLink]=" ['./home'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Home
-      </a>
-      <a [routerLink]=" ['./detail'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Detail
-      </a>
-      <a [routerLink]=" ['./barrel'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Barrel
-      </a>
-      <a [routerLink]=" ['./about'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        About
-      </a>
-    </nav>
-
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-  `
+  styleUrls: [ './app.component.css' ],
+  templateUrl: './app.template.html'
 })
 export class AppComponent implements OnInit {
   public angularclassLogo = 'assets/img/angularclass-avatar.png';
@@ -53,11 +28,18 @@ export class AppComponent implements OnInit {
   public url = 'https://twitter.com/AngularClass';
 
   constructor(
-
+    private store: Store<AppState>
   ) {}
 
   public ngOnInit() {
     console.log('Initial App State');
+  }
+
+  public handleOpenModal(modalName: string) {
+    this.store.dispatch(new OpenModalAction(modalName));
+  }
+  public handleCloseModal() {
+    this.store.dispatch(new CloseModalAction());
   }
 
 }
