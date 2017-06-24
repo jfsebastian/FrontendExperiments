@@ -87,6 +87,7 @@
     "@angular/router": "~4.1.2",
     "@angularclass/hmr": "~1.2.2",
     "@angularclass/hmr-loader": "~3.0.2",
+    "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.26",
     "@ngrx/core": "^1.2.0",
     "@ngrx/effects": "^2.0.3",
     "@ngrx/store": "^2.2.2",

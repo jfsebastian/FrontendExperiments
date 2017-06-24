@@ -2,8 +2,8 @@ import {Component, ChangeDetectionStrategy, Output, ViewChild, EventEmitter, Inp
 import {NgbModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
-  selector: 'template-modal',
-  templateUrl: 'template-modal.component.html'
+  selector: 'modal',
+  templateUrl: 'modal.template.html'
 })
 
 export class ModalComponent {

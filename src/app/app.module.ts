@@ -7,7 +7,7 @@ import { StoreModule } from '@ngrx/store'
 // With metareducer function
 import { metaReducer } from '../redux'
 
-import {NgbModule} from "@ng-bootstrap";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 
