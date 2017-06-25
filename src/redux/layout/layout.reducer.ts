@@ -44,6 +44,22 @@ export function reducer(state = initialState, action: Action): LayoutState {
       });
     }
     /*
+     Alert cases
+     */
+    case LayoutActionTypes.ADD_ALERT: {
+      return Object.assign({}, state, {
+        alerts: [...state.alerts, action.payload]
+      });
+    }
+    case LayoutActionTypes.REMOVE_ALERT: {
+      return Object.assign({}, state, {
+        // TODO: By now the alerts are filtered by message, it should be donde by some kind of id
+        alerts: state.alerts.filter( (alert) =>
+          alert['message'] !== action.payload['message']
+        )
+      });
+    }
+    /*
      Default
      */
     default:
@@ -55,3 +71,5 @@ export const getOpenedModalName = (state: LayoutState) => state.openedModalName;
 
 export const getLeftSidebarState = (state: LayoutState) => state.leftSidebarOpened;
 export const getRightSidebarState = (state: LayoutState) => state.rightSidebarOpened;
+
+export const getAlerts = (state: LayoutState) => state.alerts;

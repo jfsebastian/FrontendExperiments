@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'left-sidebar',
@@ -10,12 +10,6 @@ export class LeftSidebarComponent {
 
   @Input() public sidebarState: boolean;
 
-  constructor() {
-
-  }
-
-  ngOnInit() {
-    console.log('Init LeftSidebarComponent', this.sidebarState);
-  }
+  constructor() { }
 
 }

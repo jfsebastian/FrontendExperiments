@@ -23,7 +23,8 @@ import { TweetService } from '../services/tweet.service';
 
 import { AppComponent } from './app.component';
 
-import { LeftSidebarComponent, RightSidebarComponent} from '../components/sidebars'
+import { LeftSidebarComponent, RightSidebarComponent } from '../components/sidebars';
+import { AlertListComponent } from '../components/sidebars/alert-list';
 
 import { HomeComponent } from '../components/home';
 import { TweetDashboardComponent } from '../components/tweet-dashboard';
@@ -32,7 +33,7 @@ import { NoContentComponent } from '../components/no-content';
 import { TemplateModalComponent } from '../components/shared/modal';
 
 // Directives
-import { SidebarToggleDirective} from '../directives';
+import { SidebarToggleDirective } from '../directives';
 
 
 import '../styles/styles.scss';
@@ -58,6 +59,7 @@ type StoreType = {
     AppComponent,
     LeftSidebarComponent,
     RightSidebarComponent,
+    AlertListComponent,
     NoContentComponent,
     HomeComponent,
     TweetDashboardComponent,

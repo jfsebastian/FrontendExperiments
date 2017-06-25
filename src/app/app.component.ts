@@ -1,12 +1,12 @@
 /**
  * Angular 2 decorators and services
  */
-import { Component, OnInit, AfterViewInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap'
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 /**
  * Reducers, States and Actions
@@ -15,19 +15,13 @@ import { getLayoutOpenedModalName, getLeftSidebarState, getRightSidebarState } f
 import { AppState } from '../redux/app-state';
 import { OpenModalAction, CloseModalAction } from '../redux/layout/layout.actions';
 
-
-/**
- * App Component
- * Top Level Component
- */
 @Component({
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
   styleUrls: [ './app.style.css' ],
   templateUrl: './app.template.html'
 })
-export class AppComponent implements OnInit, AfterViewInit {
-
+export class AppComponent implements OnInit {
 
   public openedModalName$: Observable<any>;
   public leftSidebarOpen$: Observable<any>;
@@ -55,19 +49,15 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.rightSidebarOpen$.subscribe((state) => {
       this.rightSidebarOpen = state;
     });
-    this.store.select(getRightSidebarState).subscribe((state) => {
+
+    this.store.select(getLeftSidebarState).subscribe((state) => {
       this.fadeBack = state;
     });
-  }
-
-  public ngAfterViewInit() {
-
   }
 
   public handleOpenModal(modalName: string) {
     this.store.dispatch(new OpenModalAction(modalName));
   }
-
   public handleCloseModal() {
     this.store.dispatch(new CloseModalAction());
   }

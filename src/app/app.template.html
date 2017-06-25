@@ -1,28 +1,3 @@
-<!--
-<nav>
-  <a [routerLink]=" ['./'] "
-     routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-    Index
-  </a>
-  <a [routerLink]=" ['./home'] "
-     routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-    Home
-  </a>
-  <a [routerLink]=" ['./detail'] "
-     routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-    Detail
-  </a>
-  <a [routerLink]=" ['./barrel'] "
-     routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-    Barrel
-  </a>
-  <a [routerLink]=" ['./about'] "
-     routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-    About
-  </a>
-</nav>
--->
-
 <!-- Use the async pipe to get the latest broadcasted value of on observable as an input in the component -->
 <div id="fade" [ngClass]="{'fade-in': fadeBack}"></div>
 <template-modal [modalState]="this.openedModalName$ | async" (onCloseModal)="handleCloseModal()"></template-modal>

@@ -1,3 +1,12 @@
 <section class="right-sidebar" [ngClass]="{'open': this.sidebarState}">
-  <button class="btn btn-primary" sidebarToggle="right">Close Right Sidebar</button>
+
+  <alert-list [alerts]="alerts$ | async" (closeAlert)="removeAlert($event)"></alert-list>
+  <!-- Buttons for creating alerts -->
+  <button class="btn btn-danger" (click)="addAlert({type: 'danger', message: 'This is a danger alert'})">
+    Add a test danger alert
+  </button>
+  <button class="btn btn-success" (click)="addAlert({type: 'success', message: 'This is a success alert'})">
+    Add a test success alert
+  </button>
+
 </section>
