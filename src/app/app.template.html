@@ -1,3 +1,4 @@
+<!--
 <nav>
   <a [routerLink]=" ['./'] "
      routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
@@ -20,18 +21,13 @@
     About
   </a>
 </nav>
+-->
 
 <!-- Use the async pipe to get the latest broadcasted value of on observable as an input in the component -->
 <template-modal [modalState]="this.openedModalName$ | async" (onCloseModal)="handleCloseModal()">
-
 </template-modal>
-<button class="btn btn-outline-primary" (click)="handleOpenModal('templateFormModal')">
-  Open modal with template
-</button>
 
-<!-- Don't forget to add this: -->
-
-<ng-template ngbModalContainer></ng-template>
+<button class="btn btn-outline-primary" (click)="handleOpenModal('templateFormModal')">Open modal with template</button>
 
 <main>
   <router-outlet></router-outlet>

@@ -5,10 +5,12 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap'
+
 /**
  * Reducers, States and Actions
  */
-import {} from '../redux';
+import { getLayoutOpenedModalName } from '../redux';
 import { AppState } from '../redux/app-state'
 import { OpenModalAction, CloseModalAction } from '../redux/layout/layout.actions'
 
@@ -23,16 +25,17 @@ import { OpenModalAction, CloseModalAction } from '../redux/layout/layout.action
   templateUrl: './app.template.html'
 })
 export class AppComponent implements OnInit {
-  public angularclassLogo = 'assets/img/angularclass-avatar.png';
-  public name = 'Angular 2 Webpack Starter';
-  public url = 'https://twitter.com/AngularClass';
+
+  public openedModalName$: Observable<any>;
 
   constructor(
-    private store: Store<AppState>
-  ) {}
+    private store: Store<AppState>,
+    private modalService: NgbModal
+  ) {
+    this.openedModalName$ = store.select(getLayoutOpenedModalName);
+  }
 
   public ngOnInit() {
-    console.log('Initial App State');
   }
 
   public handleOpenModal(modalName: string) {
@@ -43,11 +46,3 @@ export class AppComponent implements OnInit {
   }
 
 }
-
-/**
- * Please review the https://github.com/AngularClass/angular2-examples/ repo for
- * more angular app examples that you may copy/paste
- * (The examples may not be updated as quickly. Please open an issue on github for us to update it)
- * For help or questions please contact us at @AngularClass on twitter
- * or our chat on Slack at https://AngularClass.com/slack-join
- */

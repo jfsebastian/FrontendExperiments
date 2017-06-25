@@ -7,7 +7,7 @@ import { StoreModule } from '@ngrx/store'
 // With metareducer function
 import { metaReducer } from '../redux'
 
-import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 
@@ -24,6 +24,7 @@ import { TweetService } from '../services/tweet.service';
 import { AppComponent } from './app.component';
 
 import { HomeComponent } from '../Components/home';
+import { TweetDashboardComponent } from '../Components/tweet-dashboard';
 import { NoContentComponent } from '../Components/no-content';
 
 import { TemplateModalComponent } from '../Components/shared/modal';
@@ -52,6 +53,7 @@ type StoreType = {
     AppComponent,
     NoContentComponent,
     HomeComponent,
+    TweetDashboardComponent,
     TemplateModalComponent
   ],
   /**
