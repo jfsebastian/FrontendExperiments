@@ -23,13 +23,13 @@ import { TweetService } from '../services/tweet.service';
 
 import { AppComponent } from './app.component';
 
-import { LeftSidebarComponent, RightSidebarComponent} from '../Components/sidebars'
+import { LeftSidebarComponent, RightSidebarComponent} from '../components/sidebars'
 
-import { HomeComponent } from '../Components/home';
-import { TweetDashboardComponent } from '../Components/tweet-dashboard';
-import { NoContentComponent } from '../Components/no-content';
+import { HomeComponent } from '../components/home';
+import { TweetDashboardComponent } from '../components/tweet-dashboard';
+import { NoContentComponent } from '../components/no-content';
 
-import { TemplateModalComponent } from '../Components/shared/modal';
+import { TemplateModalComponent } from '../components/shared/modal';
 
 // Directives
 import { SidebarToggleDirective} from '../directives';

@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from '../Components/home';
-import { NoContentComponent } from '../Components/no-content';
-import { TweetDashboardComponent } from '../Components/tweet-dashboard';
+import { HomeComponent } from '../components/home';
+import { NoContentComponent } from '../components/no-content';
+import { TweetDashboardComponent } from '../components/tweet-dashboard';
 
 import { DataResolver } from './app.resolver';
 
