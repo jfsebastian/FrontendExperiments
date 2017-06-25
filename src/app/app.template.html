@@ -24,12 +24,23 @@
 -->
 
 <!-- Use the async pipe to get the latest broadcasted value of on observable as an input in the component -->
-<template-modal [modalState]="this.openedModalName$ | async" (onCloseModal)="handleCloseModal()">
-</template-modal>
+<div id="fade" [ngClass]="{'fade-in': fadeBack}"></div>
+<template-modal [modalState]="this.openedModalName$ | async" (onCloseModal)="handleCloseModal()"></template-modal>
 
-<button class="btn btn-outline-primary" (click)="handleOpenModal('templateFormModal')">Open modal with template</button>
+<left-sidebar [sidebarState]="this.leftSidebarOpen$ | async"></left-sidebar>
+<right-sidebar [sidebarState]="this.rightSidebarOpen$ | async"></right-sidebar>
+<div id="main-content" [ngClass]="{'leftOpen': leftSidebarOpen, 'rightOpen': rightSidebarOpen}">
+  <button class="btn btn-primary" sidebarToggle="left">Toggle Left Sidebar</button>
+  <button class="btn btn-primary" sidebarToggle="right">Toggle Right Sidebar</button>
+  <button class="btn btn-outline-primary" (click)="handleOpenModal('templateFormModal')">Open modal with template</button>
 
-<main>
-  <router-outlet></router-outlet>
-</main>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>
+
+
+
+
+
 

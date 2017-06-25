@@ -23,11 +23,16 @@ import { TweetService } from '../services/tweet.service';
 
 import { AppComponent } from './app.component';
 
+import { LeftSidebarComponent, RightSidebarComponent} from '../Components/sidebars'
+
 import { HomeComponent } from '../Components/home';
 import { TweetDashboardComponent } from '../Components/tweet-dashboard';
 import { NoContentComponent } from '../Components/no-content';
 
 import { TemplateModalComponent } from '../Components/shared/modal';
+
+// Directives
+import { SidebarToggleDirective} from '../directives';
 
 
 import '../styles/styles.scss';
@@ -51,10 +56,15 @@ type StoreType = {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
+    LeftSidebarComponent,
+    RightSidebarComponent,
     NoContentComponent,
     HomeComponent,
     TweetDashboardComponent,
-    TemplateModalComponent
+    TemplateModalComponent,
+
+    // Directives
+    SidebarToggleDirective
   ],
   /**
    * Import Angular's modules.
