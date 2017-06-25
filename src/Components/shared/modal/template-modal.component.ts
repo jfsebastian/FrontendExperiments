@@ -14,7 +14,7 @@ export class TemplateModalComponent {
 
   @Input() set modalState(_modalState:any) {
     if(_modalState == this.modalName) {
-      this.openModal()
+      this.openModal();
     } else if(this.modalRef) {
       this.closeModal();
     }
@@ -28,7 +28,14 @@ export class TemplateModalComponent {
   }
 
   openModal() {
-    this.modalRef = this.modalService.open(this._templateModal, {backdrop: 'static' , keyboard: false, size: 'sm'})
+    let self = this;
+    // Super Dirty way to avoid ExpressionChangedAfterItHasBeenCheckedError:
+    // https://github.com/angular/angular/issues/14748
+    // https://github.com/angular/angular/issues/15464
+    setTimeout(
+      () => self.modalRef = self.modalService.open(self._templateModal, {backdrop: 'static' , keyboard: false, size: 'sm'}),
+      50
+    );
   }
 
   closeModal() {

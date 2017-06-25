@@ -1,7 +1,7 @@
 /**
  * Angular 2 decorators and services
  */
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewEncapsulation } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
@@ -24,25 +24,37 @@ import { OpenModalAction, CloseModalAction } from '../redux/layout/layout.action
   styleUrls: [ './app.component.css' ],
   templateUrl: './app.template.html'
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
 
   public openedModalName$: Observable<any>;
 
-  constructor(
-    private store: Store<AppState>,
-    private modalService: NgbModal
-  ) {
-    this.openedModalName$ = store.select(getLayoutOpenedModalName);
+  constructor(private store: Store<AppState>,
+              private modalService: NgbModal) {
+
   }
 
   public ngOnInit() {
   }
 
+  public ngAfterViewInit() {
+    this.openedModalName$ = this.store.select(getLayoutOpenedModalName);
+  }
+
   public handleOpenModal(modalName: string) {
     this.store.dispatch(new OpenModalAction(modalName));
   }
+
   public handleCloseModal() {
     this.store.dispatch(new CloseModalAction());
   }
+
+  public openBM(content) {
+    this.modalService.open(content).result.then(
+      (result) => {
+        console.log('closed');
+      }, (reason) => {
+        console.log('dismissed');
+    });
+  };
 
 }
