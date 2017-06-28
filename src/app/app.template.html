@@ -2,17 +2,47 @@
 <div id="fade" [ngClass]="{'fade-in': fadeBack}"></div>
 <template-modal [modalState]="this.openedModalName$ | async" (onCloseModal)="handleCloseModal()"></template-modal>
 
-<left-sidebar [sidebarState]="this.leftSidebarOpen$ | async"></left-sidebar>
-<right-sidebar [sidebarState]="this.rightSidebarOpen$ | async"></right-sidebar>
-<div id="main-content" [ngClass]="{'leftOpen': leftSidebarOpen, 'rightOpen': rightSidebarOpen}">
-  <button class="btn btn-primary" sidebarToggle="left">Toggle Left Sidebar</button>
-  <button class="btn btn-primary" sidebarToggle="right">Toggle Right Sidebar</button>
-  <button class="btn btn-outline-primary" (click)="handleOpenModal('templateFormModal')">Open modal with template</button>
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+  <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse"
+          aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"
+          data-target="#navbarsExampleDefault" >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class=" navbar-brand" sidebarToggle="left" href="#">
+    Frontend Experiments
+  </a>
 
-  <main>
-    <router-outlet></router-outlet>
-  </main>
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="navbar-brand" [routerLink]=" ['./'] ">
+          Home
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" (click)="handleOpenModal('templateFormModal')">Acerca de</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jfsebastian/FrontendExperiments">Github</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" sidebarToggle="right">Messages</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div id="main-wrapper" class="container-fluid"
+     [ngClass]="{'leftOpen': leftSidebarOpen, 'rightOpen': rightSidebarOpen}">
+  <div class="row">
+    <left-sidebar class="sidebar bg-faded" [sidebarState]="this.leftSidebarOpen$ | async"></left-sidebar>
+    <right-sidebar [sidebarState]="this.rightSidebarOpen$ | async"></right-sidebar>
+    <main id="main-content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
 </div>
+
+
 
 
 

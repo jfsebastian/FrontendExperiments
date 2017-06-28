@@ -1,27 +1,29 @@
-<section class="left-sidebar" [ngClass]="{'open': this.sidebarState}">
-  <button class="btn btn-primary" sidebarToggle="left">Menu</button>
-  <!--
-  <nav>
-    <a [routerLink]=" ['./'] "
-       routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-      Index
-    </a>
-    <a [routerLink]=" ['./home'] "
-       routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-      Home
-    </a>
-    <a [routerLink]=" ['./detail'] "
-       routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-      Detail
-    </a>
-    <a [routerLink]=" ['./barrel'] "
-       routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-      Barrel
-    </a>
-    <a [routerLink]=" ['./about'] "
-       routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-      About
-    </a>
-  </nav>
-  -->
-</section>
+<nav class="left-sidebar sidebar bg-faded" [ngClass]="{'open': this.sidebarState}">
+  <ul class="nav nav-pills flex-column">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]=" ['./'] " routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+        Index
+      </a>
+    </li>
+    <li class="nav-item" >
+      <a class="nav-link" [routerLink]=" ['./home'] "
+         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+        Home
+      </a>
+    </li>
+  </ul>
+
+  <ul class="nav nav-pills flex-column">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]=" ['./'] " routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+        Index
+      </a>
+    </li>
+    <li class="nav-item" >
+      <a class="nav-link" [routerLink]=" ['./home'] "
+         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+        Home
+      </a>
+    </li>
+  </ul>
+</nav>
