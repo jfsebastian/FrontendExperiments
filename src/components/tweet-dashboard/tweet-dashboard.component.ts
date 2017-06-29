@@ -1,59 +1,47 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import * as D3 from 'd3/index';
 
+import { TweetModel } from '../../models/tweet.model';
 import { TweetService } from '../../services/tweet.service';
 
 @Component({
-  /**
-   * The selector is what angular internally uses
-   * for `document.querySelectorAll(selector)` in our index.html
-   * where, in this case, selector is the string 'home'.
-   */
   selector: 'tweet-dashboard',  // <home></home>
-  /**
-   * We need to tell Angular's Dependency Injection which providers are in our app.
-   */
-  providers: [
-
-  ],
-  /**
-   * Our list of styles in our component. We may add more to compose many styles together.
-   */
+  providers: [  ],
   styleUrls: [ './tweet-dashboard.style.css' ],
-  /**
-   * Every Angular template is first compiled by the browser before Angular runs it's compiler.
-   */
   templateUrl: './tweet-dashboard.template.html'
 })
 export class TweetDashboardComponent implements OnInit {
 
+  rootElement: ElementRef;
+
   errorMessage: string;
-  host;
-  streamContainer;
-  svg;
+  term: string;
+  tweets: TweetModel[] ;
+  twitterState: any = {};
 
   public constructor (private _element: ElementRef, private _tweetService: TweetService) {
-    this.host = D3.select(this._element.nativeElement);
-    console.log(this._element.nativeElement);
+    this.rootElement = D3.select(this._element.nativeElement);
   }
 
   public ngOnInit() {
-    this.buildSVG();
+    // this.buildSVG();
     this.connectToTweetStream();
   }
 
   public buildSVG(): void {
-    this.streamContainer = this.host.append('div');
+    // this.streamContainer = this.host.append('div');
   }
 
   public connectToTweetStream() {
     this._tweetService.connectToStream()
       .subscribe(
-        tweet => {
-          console.log(tweet);
-          this.streamContainer.append('p').html(tweet);
+        (tweet) => {
+          this.tweets.push(tweet as TweetModel);
+          this.twitterState = {
+            tweets: this.tweets
+          };
         },
-        error => this.errorMessage = <any>error
+        (error) => this.errorMessage = <any>error
       );
   }
 
@@ -61,7 +49,7 @@ export class TweetDashboardComponent implements OnInit {
     this._tweetService.setSearchTerm(searchTerm)
       .subscribe(
         () => console.log('search term set: ' + searchTerm),
-        error => this.errorMessage = <any>error
+        (error) => this.errorMessage = <any>error
       );
   }
 

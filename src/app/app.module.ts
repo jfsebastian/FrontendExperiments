@@ -3,11 +3,13 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule, ApplicationRef } from '@angular/core';
 import { RouterModule, PreloadAllModules } from '@angular/router';
-import { StoreModule } from '@ngrx/store'
+import { StoreModule } from '@ngrx/store';
 // With metareducer function
-import { metaReducer } from '../redux'
+import { metaReducer } from '../redux';
 
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { MdCardModule, MdInputModule } from '@angular/material';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 
@@ -27,14 +29,13 @@ import { LeftSidebarComponent, RightSidebarComponent } from '../components/sideb
 import { AlertListComponent } from '../components/sidebars/alert-list';
 
 import { HomeComponent } from '../components/home';
-import { TweetDashboardComponent } from '../components/tweet-dashboard';
+import { TweetDashboardComponent, TweetComponent } from '../components/tweet-dashboard';
 import { NoContentComponent } from '../components/no-content';
 
 import { TemplateModalComponent } from '../components/shared/modal';
 
 // Directives
 import { SidebarToggleDirective } from '../directives';
-
 
 import '../styles/styles.scss';
 
@@ -63,6 +64,7 @@ type StoreType = {
     NoContentComponent,
     HomeComponent,
     TweetDashboardComponent,
+    TweetComponent,
     TemplateModalComponent,
 
     // Directives
@@ -77,7 +79,9 @@ type StoreType = {
     HttpModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
     StoreModule.provideStore(metaReducer),
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    MdCardModule,
+    MdInputModule
   ],
   /**
    * Expose our Services and Providers into Angular's dependency injection.
