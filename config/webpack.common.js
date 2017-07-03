@@ -290,6 +290,7 @@ module.exports = function (options) {
        */
       new CopyWebpackPlugin([
         { from: 'src/assets', to: 'assets' },
+        { from: 'src/datasets', to: 'datasets' },
         { from: 'src/meta'}
       ],
         isProd ? { ignore: [ 'mock-data/**/*' ] } : undefined

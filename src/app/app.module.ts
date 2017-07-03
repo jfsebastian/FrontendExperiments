@@ -10,7 +10,7 @@ import { metaReducer } from '../redux';
 import { MdCardModule, MdInputModule } from '@angular/material';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 
 /*
@@ -31,6 +31,9 @@ import { AlertListComponent } from '../components/sidebars/alert-list';
 import { HomeComponent } from '../components/home';
 import { TweetDashboardComponent, TweetComponent } from '../components/tweet-dashboard';
 import { NoContentComponent } from '../components/no-content';
+
+import { DVWD3SimpleHistogramComponent, DVWD3DrWhoVillainsComponent, DVWD3SVGComponent, DVWD3PathComponent,
+  DVWDAxesComponent, DVWD3CSSComponent, DVWD3ColorComponent } from '../components/data-visualization-with-d3';
 
 import { TemplateModalComponent } from '../components/shared/modal';
 
@@ -67,6 +70,14 @@ type StoreType = {
     TweetComponent,
     TemplateModalComponent,
 
+    DVWD3SimpleHistogramComponent,
+    DVWD3DrWhoVillainsComponent,
+    DVWD3SVGComponent,
+    DVWD3PathComponent,
+    DVWDAxesComponent,
+    DVWD3CSSComponent,
+    DVWD3ColorComponent,
+
     // Directives
     SidebarToggleDirective
   ],
@@ -80,6 +91,7 @@ type StoreType = {
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
     StoreModule.provideStore(metaReducer),
     NgbModule.forRoot(),
+    BrowserAnimationsModule,
     MdCardModule,
     MdInputModule
   ],

@@ -48,8 +48,6 @@ app.use("/stream", streamRouter);
 
 // stream routes
 
-
-
 if (app.get("env") === "production") {
   // in production mode run application from dist folder
   app.use(express.static(path.join(__dirname, "/../client")));

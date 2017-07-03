@@ -10,7 +10,8 @@ import * as io from 'socket.io-client';
 @Injectable()
 
 export class TweetService {
-  private url = 'http://192.168.1.13:4200';
+  // private url = 'http://192.168.1.13:4200';
+  private url = 'http://localhost:4200';
   private socket;
 
   public constructor (private _http: Http) { }

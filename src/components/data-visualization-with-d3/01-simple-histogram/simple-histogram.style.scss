@@ -1,0 +1,17 @@
+:host /deep/ svg {
+  .bar {
+    fill: steelblue;
+  }
+
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: #eee;
+    shape-rendering: crispEdges;
+  }
+
+  .axis text {
+    font-size: 11px;
+  }
+
+}

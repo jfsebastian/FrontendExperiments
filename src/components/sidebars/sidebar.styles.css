@@ -1,6 +1,7 @@
 .left-sidebar,.right-sidebar {
   z-index: 1000;
   position: fixed;
+  margin-top: 56px;
   width: 0;
   height: 100%;
   overflow-y: auto;
@@ -17,6 +18,10 @@
 }
 .left-sidebar.open{
   width: 250px;
+}
+
+.left-sidebar ul {
+  padding: 5px;
 }
 
 .right-sidebar{

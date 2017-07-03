@@ -12,12 +12,13 @@ import { TweetService } from '../../services/tweet.service';
 })
 export class TweetDashboardComponent implements OnInit {
 
-  rootElement: ElementRef;
+  private rootElement: ElementRef;
 
-  errorMessage: string;
-  term: string;
-  tweets: TweetModel[] ;
-  twitterState: any = {};
+  public errorMessage: string;
+  public term: string;
+
+  public tweets: TweetModel[] = [];
+  public twitterState: any = {};
 
   public constructor (private _element: ElementRef, private _tweetService: TweetService) {
     this.rootElement = D3.select(this._element.nativeElement);
@@ -33,15 +34,21 @@ export class TweetDashboardComponent implements OnInit {
   }
 
   public connectToTweetStream() {
+    let self = this;
+    console.log(this);
     this._tweetService.connectToStream()
       .subscribe(
         (tweet) => {
-          this.tweets.push(tweet as TweetModel);
-          this.twitterState = {
-            tweets: this.tweets
+          console.log(tweet)
+          console.log(self.tweets)
+          /*
+          self.tweets.push(tweet as TweetModel);
+          self.twitterState = {
+            tweets: self.tweets
           };
+          */
         },
-        (error) => this.errorMessage = <any>error
+        (error) => self.errorMessage = <any>error
       );
   }
 

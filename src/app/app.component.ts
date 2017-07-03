@@ -50,7 +50,7 @@ export class AppComponent implements OnInit {
       this.rightSidebarOpen = state;
     });
 
-    this.store.select(getLeftSidebarState).subscribe((state) => {
+    this.store.select(getRightSidebarState).subscribe((state) => {
       this.fadeBack = state;
     });
   }
