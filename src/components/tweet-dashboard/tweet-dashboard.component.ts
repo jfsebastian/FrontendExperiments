@@ -6,7 +6,6 @@ import { TweetService } from '../../services/tweet.service';
 
 @Component({
   selector: 'tweet-dashboard',  // <home></home>
-  providers: [  ],
   styleUrls: [ './tweet-dashboard.style.css' ],
   templateUrl: './tweet-dashboard.template.html'
 })
@@ -21,6 +20,7 @@ export class TweetDashboardComponent implements OnInit {
   public twitterState: any = {};
 
   public constructor (private _element: ElementRef, private _tweetService: TweetService) {
+    console.log(this._element.nativeElement, this._element.nativeElement.clientWidth);
     this.rootElement = D3.select(this._element.nativeElement);
   }
 
@@ -35,18 +35,17 @@ export class TweetDashboardComponent implements OnInit {
 
   public connectToTweetStream() {
     let self = this;
-    console.log(this);
     this._tweetService.connectToStream()
       .subscribe(
         (tweet) => {
           console.log(tweet)
-          console.log(self.tweets)
-          /*
+          console.log(self.tweets);
+
           self.tweets.push(tweet as TweetModel);
           self.twitterState = {
             tweets: self.tweets
           };
-          */
+
         },
         (error) => self.errorMessage = <any>error
       );

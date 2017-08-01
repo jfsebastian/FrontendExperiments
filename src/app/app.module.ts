@@ -29,7 +29,7 @@ import { LeftSidebarComponent, RightSidebarComponent } from '../components/sideb
 import { AlertListComponent } from '../components/sidebars/alert-list';
 
 import { HomeComponent } from '../components/home';
-import { TweetDashboardComponent, TweetComponent } from '../components/tweet-dashboard';
+import { TweetDashboardComponent, TweetComponent, ScatterplotComponent } from '../components/tweet-dashboard';
 import { NoContentComponent } from '../components/no-content';
 
 import { DVWD3SimpleHistogramComponent, DVWD3DrWhoVillainsComponent, DVWD3SVGComponent, DVWD3PathComponent,
@@ -68,6 +68,7 @@ type StoreType = {
     HomeComponent,
     TweetDashboardComponent,
     TweetComponent,
+    ScatterplotComponent,
     TemplateModalComponent,
 
     DVWD3SimpleHistogramComponent,

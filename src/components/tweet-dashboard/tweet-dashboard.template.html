@@ -1,8 +1,13 @@
 <h1>Tweet Search Streaming Service</h1>
 
-  <label for="term">Track Tweets containing</label>
-  <md-input-container>
-    <input mdInput type="text" id="term" name="term" [(ngModel)]="term" placeholder="search term" required>
-  </md-input-container>
-  <button md-raised-button color="primary" (click)="setSearchTerm(term)">Search</button>
-  <tweet-component [twitterState]="twitterState"></tweet-component>
+<label for="term">Track Tweets containing</label>
+<md-input-container>
+  <input mdInput type="text" id="term" name="term" [(ngModel)]="term" placeholder="search term" required>
+</md-input-container>
+<button md-raised-button color="primary" (click)="setSearchTerm(term)">Search</button>
+<div id="scatterplot">
+  <md-card>
+    <scatterplot-component [twitterState]="twitterState" ></scatterplot-component>
+  </md-card>
+</div>
+<tweet-component [twitterState]="twitterState"></tweet-component>
